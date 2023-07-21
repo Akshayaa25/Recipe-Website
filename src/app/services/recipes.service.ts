@@ -20,6 +20,11 @@ export class RecipesService {
     const url = `${this.apiUrl}/${recipeId}`;
     return this.http.get<AllRecipe>(url);
   }
+  
+  getRecipeByAuthorId(authorId: number): Observable<AllRecipe> {
+    const url = `${this.apiUrl}/${authorId}`;
+    return this.http.get<AllRecipe>(url);
+  }
 
   createRecipe(recipe: AllRecipe): Observable<AllRecipe> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });

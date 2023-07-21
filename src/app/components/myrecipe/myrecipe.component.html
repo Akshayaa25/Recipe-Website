@@ -1,1 +1,23 @@
-
+<div class="body">
+    <app-dashboard></app-dashboard>
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center flex-wrap mb-4">
+            <div class="col-md-4 d-flex justify-content-evenly mb-5" *ngFor="let recipe of filteredRecipes">
+                <mat-card class="recipe-card bg-white">
+                    <div class="recipe-image">
+                        <img [src]="recipe.image" [alt]="recipe.title">
+                    </div>
+                    <mat-card-content>
+                        <mat-card-title class="title">
+                            <a (click)="viewRecipeDetails(recipe.id)">{{ recipe.title }}</a>
+                        </mat-card-title>
+                        <mat-card-subtitle class="author">
+                            <p>Author: {{ recipe.author_name || "null" }}</p>
+                        </mat-card-subtitle>
+                        <p class="description">{{ recipe.description }}</p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
