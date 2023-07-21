@@ -1,0 +1,69 @@
+/* Add some space at the top for better alignment */
+.container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Style the heading */
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  form {
+    width: 100%;
+  }
+
+  /* Style the form fields */
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  /* .forms-field {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  } */
+  
+  /* Style the input and textarea */
+  input[matInput],
+  textarea[matInput] {
+    width: 100%;
+  }
+  
+  /* Style the actions div */
+  .actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  /* Style the buttons */
+  button[mat-button] {
+    margin: 0 5px;
+  }
+  
+  /* Responsive styles for different screen sizes */
+  @media screen and (max-width: 767px) {
+    mat-form-field {
+      max-width: 100%;
+    }
+  }
+  
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+    mat-form-field {
+      max-width: 80%;
+    }
+  }
+  
+  @media screen and (min-width: 992px) {
+    mat-form-field {
+      max-width: 60%;
+    }
+  }
+  

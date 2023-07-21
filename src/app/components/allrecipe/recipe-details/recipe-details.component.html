@@ -1,0 +1,28 @@
+<div class='container'>
+  <a (click)='onBack()' fxShow fxHide.gt-xs
+    style="text-align: left; margin: 15px; margin-bottom: 0px; text-decoration: none; cursor: pointer; display: inline-block; width: 90%;">
+    <mat-icon>arrow_back</mat-icon> <span style="text-align: center;display: block; margin-top:-25px;">Back to Recipes</span>
+  </a>
+  <mat-card>
+    <mat-card-title class="card-title">
+      {{ recipe.title }}
+    </mat-card-title>
+    <p class="author-name">Author: {{ recipe.author_name }}</p>
+    <img mat-card-image [src]="recipe.image" alt="">
+    <mat-card-content>
+      <p class="description">{{ recipe.description }}</p>
+      <p class="content">{{ recipe.content }}</p>
+      <p class="tags">Tags: {{ recipe.tags.join(', ') }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <div class='buttons'>
+        <button mat-raised-button color="primary" (click)="openUpdateDialog()">Edit</button>
+        <button mat-raised-button color="primary" (click)="openDeleteDialog()">Delete</button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+
+  <div style='height:5px;margin-bottom: 55px;'></div>
+
+</div>
+  

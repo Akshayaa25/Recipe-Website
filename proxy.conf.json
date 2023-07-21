@@ -1,0 +1,9 @@
+{
+    "/recipe/*": {
+      "target": "https://sjollgpbri.execute-api.us-east-1.amazonaws.com",
+      "secure": true,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+  }
+  
