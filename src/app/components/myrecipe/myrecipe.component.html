@@ -1,8 +1,9 @@
 <div class="body">
     <app-dashboard></app-dashboard>
     <div class="container-fluid">
+        <div class="add-recipe"><a routerLink="/addrecipe"> + Add Recipe</a></div>
         <div class="row d-flex justify-content-center flex-wrap mb-4">
-            <div class="col-md-4 d-flex justify-content-evenly mb-5" *ngFor="let recipe of filteredRecipes">
+            <div class="col-md-4 d-flex justify-content-evenly mb-5" *ngFor="let recipe of data">
                 <mat-card class="recipe-card bg-white">
                     <div class="recipe-image">
                         <img [src]="recipe.image" [alt]="recipe.title">

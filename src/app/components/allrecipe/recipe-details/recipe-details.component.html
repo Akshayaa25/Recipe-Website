@@ -1,7 +1,8 @@
 <div class='container'>
   <a (click)='onBack()' fxShow fxHide.gt-xs
     style="text-align: left; margin: 15px; margin-bottom: 0px; text-decoration: none; cursor: pointer; display: inline-block; width: 90%;">
-    <mat-icon>arrow_back</mat-icon> <span style="text-align: center;display: block; margin-top:-25px;">Back to Recipes</span>
+    <mat-icon>arrow_back</mat-icon> <span style="text-align: center;display: block; margin-top:-25px;">Back to
+      Recipes</span>
   </a>
   <mat-card>
     <mat-card-title class="card-title">
@@ -14,7 +15,7 @@
       <p class="content">{{ recipe.content }}</p>
       <p class="tags">Tags: {{ recipe.tags.join(', ') }}</p>
     </mat-card-content>
-    <mat-card-actions>
+    <mat-card-actions *ngIf="canEditDeleteRecipe(recipe.author_id)">
       <div class='buttons'>
         <button mat-raised-button color="primary" (click)="openUpdateDialog()">Edit</button>
         <button mat-raised-button color="primary" (click)="openDeleteDialog()">Delete</button>
@@ -25,4 +26,3 @@
   <div style='height:5px;margin-bottom: 55px;'></div>
 
 </div>
-  

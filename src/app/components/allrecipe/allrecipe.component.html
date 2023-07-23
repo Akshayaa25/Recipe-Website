@@ -1,50 +1,11 @@
-<!-- <h2>Welcome</h2> -->
 <div class="body">
-    <!-- <header id="header" class="fixed-top d-flex align-items-center">
-        <div class="logo">Recipe Book</div>
-        <div>
-            <div>
-                <input id="search-text" type="text" class="search-text" [(ngModel)]="searchQuery" placeholder="">
-                <button id="search-button" class="search-button" (click)="searchRecipe()">
-                    <i class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
-            <ul>
-                <li><a routerLink="/">Home</a></li>
-                <li><a routerLink="/addrecipe">Add Recipe</a></li>
-                <li><a routerLink="/">Log Out</a></li>
-            </ul>
-        </div>
-    </header> -->
     <app-dashboard></app-dashboard>
-
     <div class="container-fluid">
-        <!-- <a routerLink="/addrecipe">add recipe</a> -->
-        <!-- <div class="row">
-            <div class="col-lg-4" *ngFor="let recipe of data">
-                <mat-card class="news-card">
-                    <div class="image-container">
-                        <img mat-card-image [src]="recipe.image" [alt]="recipe.title" />
-                    </div>
-                    <mat-card-content>
-                        <mat-card-title class="title">
-                            <a>{{ recipe.title }}</a>
-                        </mat-card-title>
-                        <mat-card-subtitle class="author">
-                            <p>Author: {{ recipe.author_name || "null" }}</p>
-                        </mat-card-subtitle>
-                        <p class="description">{{ recipe.description }}</p>
-                    </mat-card-content>
-                    <mat-card-actions>
-                        <button mat-button color="primary" (click)="viewRecipeDetails(recipe.id)">Read More</button>
-                    </mat-card-actions>
-                </mat-card>
-            </div>
-        </div> -->
         <div class="row d-flex justify-content-center flex-wrap mb-4">
             <div class="col-md-4 d-flex justify-content-evenly mb-5" *ngFor="let recipe of filteredRecipes">
                 <mat-card class="recipe-card bg-white">
                     <div class="recipe-image">
-                        <img [src]="recipe.image" [alt]="recipe.title">
+                        <img [src]="recipe.image" (click)="viewRecipeDetails(recipe.id)" [alt]="recipe.title">
                     </div>
                     <mat-card-content>
                         <mat-card-title class="title">

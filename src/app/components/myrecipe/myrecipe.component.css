@@ -1,42 +1,31 @@
-/* Add some space at the top for better alignment */
+.body {
+    background-color: black;
+}
 
 .container-fluid {
-    /* margin-top: 100px; */
-    /* margin-bottom: 100px; */
-    /* background-image: url("../../../assets/img/food-table-top-view.avif");
-    background-size: 100% 100%;
-    background-repeat: repeat-y; */
-    padding-top: 100px;
+    padding-top: 70px;
 }
 
-/* Style the card layout */
-/* .news-card {
-      width: 100%;
-      width: 300px;
-      margin: 10px;
-    } */
-
-/* Center the card content */
-/* .news-card .mat-card-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    } */
-
-/* Style the card image */
-.image-container {
+.add-recipe {
     width: 100%;
-    height: 150px;
-    overflow: hidden;
+    height: 80px;
+    display: flex;;
+    align-items: center;
+    /* background-color: brown; */
 }
 
-.image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.add-recipe a {
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    padding: 3px 10px;
+    margin-left: 20px;
 }
 
-/* Style the card title */
+.add-recipe a:hover {
+    background-color: white;
+    color: black;
+}
 .title {
     font-size: 18px;
     font-weight: bold;
@@ -49,14 +38,12 @@
     text-decoration: underline;
 }
 
-/* Style the card subtitle */
 .author {
     font-size: 14px;
     text-align: center;
     margin: 5px 0;
 }
 
-/* Style the card description */
 .description {
     font-size: 14px;
     text-align: center;
@@ -66,12 +53,6 @@
     text-overflow: ellipsis;
 }
 
-/* Add space between the cards */
-/* .row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    } */
 .recipe-card {
     width: 70%;
     height: 350px;
@@ -87,66 +68,4 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-/* Responsive styles for different screen sizes */
-@media screen and (max-width: 767px) {
-    .news-card {
-        max-width: 100%;
-    }
-}
-
-@media screen and (min-width: 768px) and (max-width: 991px) {
-    .news-card {
-        max-width: 50%;
-    }
-}
-
-@media screen and (min-width: 992px) {
-    .news-card {
-        max-width: 33.33%;
-    }
-}
-
-.body {
-    background-color: black;
-}
-
-/* Header */
-header {
-    width: 100%;
-    height: 70px;
-    background: rgba(12, 11, 9, 0.6);
-    border-bottom: 1px solid rgba(12, 11, 9, 0.6);
-    transition: all 0.5s;
-    z-index: 997;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header .logo {
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
-header ul {
-    margin-bottom: 0;
-    height: 100%;
-    display: flex;
-    align-items: center;
-}
-
-header ul li {
-    display: inline;
-    margin-left: 40px;
-}
-
-header ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
 }

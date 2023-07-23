@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RecipesService } from 'src/app/services/recipes.service';
 import { AllRecipe } from '../allrecipe/allrecipe.model';
 import { Router } from '@angular/router';
+import { AuthService } from '../user/auth.service';
 
 @Component({
   selector: 'app-myrecipe',
@@ -10,48 +11,34 @@ import { Router } from '@angular/router';
 })
 export class MyrecipeComponent {
   data: AllRecipe[] = [];
-  filteredRecipes: any[] = [];
-  searchQuery: string = '';
+  loggedInAuthorId!: number;
 
-  constructor(private recipesService: RecipesService, private router: Router) {}
+  constructor(private recipesService: RecipesService, private router: Router) { }
 
   ngOnInit(): void {
-    this.getAllRecipes();
-    this.recipesService.searchQuery$.subscribe((query) => {
-      console.log(query);
-      this.filterRecipe(query);
-    });
+    // this.authService.getLoggedInUser().subscribe((user) => {
+    //   if (user) {
+    //     this.loggedInAuthorId = user.authorId;
+    //     this.getRecipes();
+    //   }
+    // });
+    this.loggedInAuthorId = 4;
+    this.getRecipes();
   }
 
-  getAllRecipes(): void {
-    this.recipesService.getAllRecipes().subscribe((recipes) => {
+  getRecipes(): void {
+    this.recipesService.getRecipeByAuthorId(this.loggedInAuthorId).subscribe((recipes) => {
+      console.log(this.data)
       this.data = recipes;
-      this.filterRecipe();
     });
   }
 
   viewRecipeDetails(recipeId: number): void {
     this.router.navigateByUrl(`/recipeDetails/${recipeId}`);
   }
-
-  searchRecipe() {
-    console.log(this.searchQuery);
-    this.recipesService.setSearchQuery(this.searchQuery);
-  }
-
-  filterRecipe(query: string = '') {
-    console.log('Filtering recipes with query:', query);
-    const lowerCaseQuery = query.toLowerCase();
-    this.filteredRecipes = this.data.filter((recipe) => {
-      if (recipe) {
-        const articleProperties = Object.values(recipe).map((property) => {
-          return String(property).toLowerCase();
-        });
-        return articleProperties.some((property) =>
-          property.includes(lowerCaseQuery)
-        );
-      }
-      return false;
-    });
-  }
+  // canEditDelete: boolean = true;
+  // canEditDeleteRecipe(authorId: number): boolean {
+  //   const loggedInAuthorId = 4;
+  //   return loggedInAuthorId === authorId;
+  // }
 }

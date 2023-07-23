@@ -39,8 +39,6 @@ export class AllrecipeComponent implements OnInit {
     this.recipesService.setSearchQuery(this.searchQuery);
   }
 
-  
-
   filterRecipe(query: string = '') {
     console.log('Filtering recipes with query:', query);
     const lowerCaseQuery = query.toLowerCase();
@@ -55,6 +53,10 @@ export class AllrecipeComponent implements OnInit {
       }
       return false;
     });
+  }
+  canEditDeleteRecipe(authorId: number): boolean {
+    const loggedInAuthorId = 4;
+    return loggedInAuthorId === authorId;
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RecipesService } from 'src/app/services/recipes.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteRecipeComponent } from '../delete-recipe/delete-recipe.component';
@@ -71,5 +71,10 @@ export class RecipeDetailsComponent implements OnInit {
 
   onBack(): void {
     this.router.navigateByUrl('/allrecipes');
+  }
+
+  canEditDeleteRecipe(authorId: number): boolean {
+    const loggedInAuthorId = 4;
+    return loggedInAuthorId === authorId;
   }
 }
